@@ -1,26 +1,36 @@
 import React from "react";
 
-import BookCard from "./BookCard";
-import AuthorCard from "./AuthorCard";
-import Subscribe from "./Subscribe";
+import BooksList from "./BooksList";
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <div>
-          <AuthorCard author={this.props.author} />
-        </div>
-        <div>
-          <BookCard books={this.props.books} />
-        </div>
-
-        <div>
-          <Subscribe subscribe={this.props.subscribe} />
-        </div>
-      </div>
+      <>
+        <header style={styles.header}>-=My^_^OWN^_^leanPuB=-</header>
+        <main>
+          <BooksList books={this.props.books} />
+        </main>
+        <footer>&copy; {new Date().getFullYear()}, Epixalotica</footer>
+      </>
     );
   }
 }
 
 export default App;
+
+const styles = {
+  header: {
+    backgroundColor: "#d2f0fce0",
+    color: "#00020fe0",
+    minHeight: "75px",
+    fontWeight: "bold",
+    fontFamily: "Helvetica",
+  },
+  main: {
+    padding: "10px 10%",
+  },
+  footer: {
+    padding: "0 10%",
+    marginTop: "50px",
+  },
+};
