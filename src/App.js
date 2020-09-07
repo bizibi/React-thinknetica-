@@ -1,16 +1,19 @@
 import React from "react";
 
-import BooksList from "./BooksList";
+import BooksList from "./components/book/BooksList";
+
+import Header from "./Header";
+import Footer from "./Footer";
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <header style={styles.header}>-=My^_^OWN^_^leanPuB=-</header>
-        <main>
+        <Header />
+        <main style={styles.main}>
           <BooksList books={this.props.books} />
         </main>
-        <footer>&copy; {new Date().getFullYear()}, Epixalotica</footer>
+        <Footer />
       </>
     );
   }
@@ -19,6 +22,10 @@ class App extends React.Component {
 export default App;
 
 const styles = {
+  appTytle: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+  },
   header: {
     backgroundColor: "#d2f0fce0",
     color: "#00020fe0",
