@@ -1,27 +1,25 @@
 import React from "react";
 
-import AuthorContext from "../../context/AuthorContext";
+import UserContext from "../../context/AuthorContext";
 
-class UserInfo extends React.Component {
-  render() {
-    return (
-      <AuthorContext.Consumer>
-        {({ firstName, lastName, subscriberAvatar }) => (
-          <div style={styles.container}>
-            <div style={styles.imageBox}>
-              <img style={styles.image} src={subscriberAvatar} />
-            </div>
-            <div style={styles.cardBody}>
-              <div>
-                {firstName} {lastName}
-              </div>
+const UserInfo = () => (
+  <UserContext.Consumer>
+    {(user) =>
+      Object.keys(user).length && (
+        <div style={styles.container}>
+          <div style={styles.imageBox}>
+            <img style={styles.image} src={user.subscriberAvatar} />
+          </div>
+          <div style={styles.cardBody}>
+            <div>
+              {user.firstName} {user.lastName}
             </div>
           </div>
-        )}
-      </AuthorContext.Consumer>
-    );
-  }
-}
+        </div>
+      )
+    }
+  </UserContext.Consumer>
+);
 
 export default UserInfo;
 

@@ -5,16 +5,22 @@ import BooksList from "./components/book/BooksList";
 import Header from "./Header";
 import Footer from "./Footer";
 
+import UserInfo from "../src/components/user/UserInfo";
+
+import AuthorContext from "./context/AuthorContext";
+import user from "../src/db/user.json";
+
 class App extends React.Component {
   render() {
     return (
-      <>
+      <AuthorContext.Provider value={user}>
         <Header />
+        <UserInfo style={styles.userInfo} />
         <main style={styles.main}>
           <BooksList books={this.props.books} />
         </main>
         <Footer />
-      </>
+      </AuthorContext.Provider>
     );
   }
 }
@@ -39,5 +45,9 @@ const styles = {
   footer: {
     padding: "0 10%",
     marginTop: "50px",
+  },
+  userInfo: {
+    padding: "40px 30%",
+    marginLeft: "100px",
   },
 };
