@@ -4,7 +4,7 @@ import App from "./App";
 
 import "./index.css";
 
-import books from "./books.json";
+import books from "./db/books.json";
 
 console.log(books);
 

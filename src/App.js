@@ -1,17 +1,26 @@
 import React from "react";
 
-import BooksList from "./BooksList";
+import BooksList from "./components/book/BooksList";
+
+import Header from "./Header";
+import Footer from "./Footer";
+
+import UserInfo from "../src/components/user/UserInfo";
+
+import AuthorContext from "./context/AuthorContext";
+import user from "../src/db/user.json";
 
 class App extends React.Component {
   render() {
     return (
-      <>
-        <header style={styles.header}>-=My^_^OWN^_^leanPuB=-</header>
-        <main>
+      <AuthorContext.Provider value={user}>
+        <Header />
+        <UserInfo style={styles.userInfo} />
+        <main style={styles.main}>
           <BooksList books={this.props.books} />
         </main>
-        <footer>&copy; {new Date().getFullYear()}, Epixalotica</footer>
-      </>
+        <Footer />
+      </AuthorContext.Provider>
     );
   }
 }
@@ -19,6 +28,10 @@ class App extends React.Component {
 export default App;
 
 const styles = {
+  appTytle: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+  },
   header: {
     backgroundColor: "#d2f0fce0",
     color: "#00020fe0",
@@ -32,5 +45,9 @@ const styles = {
   footer: {
     padding: "0 10%",
     marginTop: "50px",
+  },
+  userInfo: {
+    padding: "40px 30%",
+    marginLeft: "100px",
   },
 };
